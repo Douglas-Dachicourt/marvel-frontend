@@ -2,12 +2,16 @@ import { useEffect, useState } from "react"
 import { Link } from "react-router-dom"
 import axios from "axios"
 
+
+const maxLetters = (text, maxLength) => {
+    return text.length > maxLength ? text.slice(0, maxLength) + "..." : text;
+}
+
+
 const Characters = () => {
 
     const [data, setData] = useState("")
     const [isLoading, setIsLoading] = useState(true)
-
-
 
 
 
@@ -37,18 +41,21 @@ const Characters = () => {
     return isLoading ? <p className="loading">Chargement...</p> : (
 
         <>
-            <h1 className="character-title">Séléctionne ton héro</h1>
+            <h1 className="character-title">Séléctionne ton Super-héro</h1>
             <div className="container listing">
                 {data.map((hero) => {
-                    return <article key={hero.name} >
-                        <Link style={{ textDecoration: "1px solid red" }}>
-                            <div className="hero-name">
-                                <p >{hero.name}</p>
+                    return <article key={hero.name} className="article">
+                        <Link className="hero-name">
+                            <div >
+                                <p >{maxLetters(hero.name, 12)}</p>
                             </div>
                         </Link>
 
                         <div className="character-preview">
-                            <img className="hero-pics" src={hero.thumbnail.path + "." + hero.thumbnail.extension} alt="hero-pictures" />
+                            <Link>
+                                <img className="hero-pics" src={hero.thumbnail.path + "." + hero.thumbnail.extension} alt="hero-pictures" />
+                            </Link>
+
                             <p className="hero-description">{hero.description}</p>
                         </div>
 
