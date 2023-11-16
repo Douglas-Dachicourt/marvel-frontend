@@ -43,11 +43,16 @@ const Comics = () => {
                 return <article key={comic._id} className="comic-article" >
                     <div className="title-comic">
                         <h2 >{comic.title}</h2>
-                        <img src={comic.thumbnail.path + "." + comic.thumbnail.extension} alt="" />
+                        {comic.thumbnail.path.includes("image_not_available") ? <img className="no-pic-found" src="https://images.assetsdelivery.com/compings_v2/newdesignillustrations/newdesignillustrations1902/newdesignillustrations190211443.jpg" alt="" /> :
+                            <img src={comic.thumbnail.path + "." + comic.thumbnail.extension} alt="" />
+                        }
                     </div>
                     {comic.description ? <div className="descript-comic">
                         <p>{comic.description}</p>
-                    </div> : (<div className="descript-comic">A description will be available soon ...</div>
+                    </div> : (<div className="no-descript">
+                        <p>Description is</p>
+                        <img src="https://img.freepik.com/vecteurs-libre/style-grunge-abstrait-venir-eclaboussures-noires_1017-26690.jpg?w=1800&t=st=1700154900~exp=1700155500~hmac=b91b2e9dcb754d6b1e34ade528b727d1a8c26251b37bc1546d9d4f768168c172" alt="" />
+                    </div>
                     )}
 
 
