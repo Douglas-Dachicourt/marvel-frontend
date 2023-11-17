@@ -1,6 +1,6 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
-// import { Link } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 
 const Comics = () => {
@@ -17,7 +17,7 @@ const Comics = () => {
             try {
 
                 const response = await axios.get("http://localhost:3000/comics")
-                console.log(response.data)
+                // console.log(response.data)
                 setData(response.data.results)
                 setIsLoading(false)
 
@@ -41,8 +41,12 @@ const Comics = () => {
             {data.map((comic) => {
                 // console.log(comic);
                 return <article key={comic._id} className="comic-article" >
+
                     <div className="title-comic">
-                        <h2 >{comic.title}</h2>
+                        <Link to={"/comic/" + comic._id}>
+                            <h2 >{comic.title}</h2>
+                        </Link>
+
                         {comic.thumbnail.path.includes("image_not_available") ? <img className="no-pic-found" src="https://images.assetsdelivery.com/compings_v2/newdesignillustrations/newdesignillustrations1902/newdesignillustrations190211443.jpg" alt="" /> :
                             <img src={comic.thumbnail.path + "." + comic.thumbnail.extension} alt="" />
                         }
