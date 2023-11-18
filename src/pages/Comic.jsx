@@ -19,7 +19,8 @@ const Comic = () => {
             try {
 
                 const response = await axios.get(`http://localhost:3000/comic/${comicId}`)
-                console.log(response);
+                console.log(response.data);
+                setData(response.data)
                 setIsLoading(false)
 
             } catch (error) {
@@ -38,6 +39,10 @@ const Comic = () => {
 
     }, [])
 
+    return isLoading ? <p>Chargement...</p> : <div>
+
+
+    </div>
 
 
 

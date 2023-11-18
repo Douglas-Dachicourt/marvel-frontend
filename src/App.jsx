@@ -5,11 +5,13 @@ import Characters from './pages/Characters'
 import Character from './pages/Character'
 import Comics from './pages/Comics'
 import Comic from './pages/Comic'
+import ComicCharacter from './pages/ComicCharacter'
 
 import Footer from './components/Footer'
 
 
 import './App.css'
+
 
 function App() {
 
@@ -25,6 +27,7 @@ function App() {
           <Route path='/character/:characterId' element={<Character />} />
           <Route path='/comics' element={<Comics />} />
           <Route path='/comic/:comicId' element={<Comic />} />
+          <Route path='/comics/:characterId' element={<ComicCharacter />} />
         </Routes>
         <Footer />
       </Router>

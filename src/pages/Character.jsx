@@ -18,7 +18,7 @@ const Character = () => {
 
             try {
                 const response = await axios.get(`http://localhost:3000/character/${characterId}`)
-                console.log(response.data);
+                // console.log(response.data);
                 setData(response.data)
                 setIsLoading(false)
 

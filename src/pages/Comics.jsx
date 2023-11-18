@@ -17,7 +17,7 @@ const Comics = () => {
             try {
 
                 const response = await axios.get("http://localhost:3000/comics")
-                // console.log(response.data)
+                console.log(response.data)
                 setData(response.data.results)
                 setIsLoading(false)
 
