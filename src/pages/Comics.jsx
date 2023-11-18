@@ -16,7 +16,7 @@ const Comics = () => {
 
             try {
 
-                const response = await axios.get("http://localhost:3000/comics")
+                const response = await axios.get("site--marvel-backend--5p86lc7n4dj5.code.run/comics")
                 console.log(response.data)
                 setData(response.data.results)
                 setIsLoading(false)

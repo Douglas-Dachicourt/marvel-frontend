@@ -17,7 +17,7 @@ const Character = () => {
         const fetchData = async () => {
 
             try {
-                const response = await axios.get(`http://localhost:3000/character/${characterId}`)
+                const response = await axios.get(`site--marvel-backend--5p86lc7n4dj5.code.run/character/${characterId}`)
                 // console.log(response.data);
                 setData(response.data)
                 setIsLoading(false)
