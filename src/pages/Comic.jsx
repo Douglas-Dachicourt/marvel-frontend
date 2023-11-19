@@ -18,7 +18,7 @@ const Comic = () => {
 
             try {
 
-                const response = await axios.get(`https://app.northflank.com/u/dd-74/project/project-douglas/services/marvel-backend/instances/68328bb1-df15-4f17-975e-54ccacf79bf0/logs/comic/${comicId}`)
+                const response = await axios.get(`https://site--marvel-backend--5p86lc7n4dj5.code.run/comic/${comicId}`)
                 console.log(response.data);
                 setData(response.data)
                 setIsLoading(false)
